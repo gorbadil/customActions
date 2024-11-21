@@ -10,9 +10,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Cache dependencies
+        id: cache-dep
         uses: gorbadil/customActions/.github/actions/cache-dep@main
         with:
           caching: "false"
+      - name: Cache Outout
+        run: echo "Cache used? ${{ steps.cache-dep.outputs.used-cache }} "
       - name: Lint code
         run: npm run lint
   test:
