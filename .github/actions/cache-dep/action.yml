@@ -4,7 +4,6 @@ runs:
   using: composite
   steps:
     - name: Cache dependencies
-      shell: bash
       id: cache
       uses: actions/cache@v3
       with:
